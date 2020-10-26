@@ -1,6 +1,3 @@
-#!/usr/bin/ruby -w
-require 'io/console'
-
 class TapTempo
   attr_accessor :precision, :reset_time, :sample, :close_char
 
@@ -35,7 +32,7 @@ class TapTempo
 
   def rules
     puts <<~HELP
-      Tap any key in rythm to find the tempo.
+      Tap any key in rhythm to find the tempo.
       
       - use the key '#{close_char}' to end the program
       - wait #{reset_time} seconds to reset the tempo
@@ -46,7 +43,6 @@ class TapTempo
 
   def display_bpm
     if tempo.bpm?
-      p tempo.count
       puts "Tempo: #{tempo.bpm.truncate(precision)} bpm"
     else
       puts '[Hit a key one more time to start bpm computation...]'
@@ -69,7 +65,6 @@ class Tempo
 
   def bpm
     return unless bpm?
-    p beats.size
 
     (60 * (beats.size - 1)) / (beats.last - beats.first).to_f
   end

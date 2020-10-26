@@ -1,3 +1,5 @@
 # tap-tempo-ruby
 
-https://docs.google.com/presentation/d/1ewcBek2jJRv1QjEEnsR2AcQ8-AftDnyPKBgrkUF-rVI/edit?usp=sharing
+A command line tap tempo. Hit enter key with style and you'll get the corresponding number of beats per minute (bpm).
+
+
