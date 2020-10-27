@@ -1,3 +1,6 @@
+#!/usr/bin/ruby -w
+require 'io/console'
+
 class TapTempo
   attr_accessor :precision, :reset_time, :sample, :close_char
 
@@ -24,8 +27,8 @@ class TapTempo
   private
 
   def tap
-    self.tempo = Tempo.new if tempo.any? && (Time.now - tempo.last) > reset_time
-    self.tempo = tempo.sub_tempo([2..]) if tempo.count >= sample
+    self.tempo = Tempo.new if tempo.any? && (Time.now - tempo.max) > reset_time
+    self.tempo = tempo.sub_tempo(1..) if tempo.count >= sample
 
     tempo.tap
   end
@@ -77,9 +80,8 @@ class Tempo
     beats << Time.now
   end
 
-  def each
-    p beats
-    beats.each
+  def each(...)
+    beats.each(...)
   end
 
   def sub_tempo(range)
